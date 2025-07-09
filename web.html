@@ -1,0 +1,1333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellinLanka.com - Your Trusted Vehicle Marketplace in Sri Lanka</title>
+    <meta name="description" content="Sri Lanka's most trusted marketplace for buying and selling vehicles. Find cars, motorcycles, vans, and more." />
+    <meta name="author" content="SellinLanka" />
+
+    <meta property="og:title" content="SellinLanka.com - Your Trusted Vehicle Marketplace in Sri Lanka" />
+    <meta property="og:description" content="Sri Lanka's most trusted marketplace for buying and selling vehicles. Find cars, motorcycles, vans, and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sellinlanka" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1E88E5;
+            --secondary-color: #FFC107;
+            --accent-color: #F5F5F5;
+            --background-color: #FFFFFF;
+            --text-dark: #333;
+            --text-light: #666;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-color);
+        }
+
+        /* Header */
+        header {
+            background: var(--background-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #1565c0);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .search-filters {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .search-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            grid-column: 1 / -1;
+            justify-self: center;
+            max-width: 200px;
+        }
+
+        .search-btn:hover {
+            background: #1565c0;
+        }
+
+        /* Featured Section */
+        .featured {
+            padding: 4rem 2rem;
+            background: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vehicle-image {
+            height: 200px;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 3rem;
+        }
+
+        .vehicle-info {
+            padding: 1.5rem;
+        }
+
+        .vehicle-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .vehicle-price {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .vehicle-details {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .contact-btn {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #e6ac00;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .quick-link-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background: var(--accent-color);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            border: none;
+        }
+
+        .quick-link-card:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .quick-link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1565c0;
+        }
+
+        /* Dealers Grid */
+        .dealers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .dealer-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .dealer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dealer-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .verified-badge {
+            background: #4CAF50;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .dealer-rating {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-filters {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .vehicle-grid,
+            .dealers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-4 {
+            margin-top: 4rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="showPage('home')">
+                <div class="logo-icon">🚗</div>
+                SellinLanka
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a onclick="showPage('home')" class="nav-link active">Home</a></li>
+                    <li><a onclick="showPage('buy')" class="nav-link">Buy</a></li>
+                    <li><a onclick="showPage('sell')" class="nav-link">Sell</a></li>
+                    <li><a onclick="showPage('dealers')" class="nav-link">Dealers</a></li>
+                    <li><a onclick="showPage('about')" class="nav-link">About</a></li>
+                    <li><a onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-container">
+                    <h1>Find Your Perfect Vehicle</h1>
+                    <p>Sri Lanka's most trusted marketplace for buying and selling vehicles</p>
+                    
+                    <div class="search-filters">
+                        <div class="filter-group">
+                            <label>Make</label>
+                            <select>
+                                <option>All Makes</option>
+                                <option>Toyota</option>
+                                <option>Honda</option>
+                                <option>Nissan</option>
+                                <option>Suzuki</option>
+                                <option>Mitsubishi</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Model</label>
+                            <select>
+                                <option>All Models</option>
+                                <option>Corolla</option>
+                                <option>Civic</option>
+                                <option>Alto</option>
+                                <option>Wagon R</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <select>
+                                <option>All Locations</option>
+                                <option>Colombo</option>
+                                <option>Kandy</option>
+                                <option>Galle</option>
+                                <option>Jaffna</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Max Price (LKR)</label>
+                            <input type="number" placeholder="5,000,000">
+                        </div>
+                        <button class="search-btn">Search Vehicles</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured">
+                <div class="container">
+                    <h2 class="section-title">Featured Vehicles</h2>
+                  <div class="vehicle-grid">
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+								<img src="https://cka-dash.s3.amazonaws.com/114-0819-WTS230/mainimage.jpg" alt="toyota corolla" width="530">
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Toyota Corolla 2020</h3>
+                                <div class="vehicle-price">LKR 6,500,000</div>
+                                <div class="vehicle-details">
+                                    📍 Colombo • 🛣️ 45,000 km • ⛽ Petrol • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">Contact Seller</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+								<img src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/58473/honda-cb150r-streetfire3.jpeg" alt="toyota corolla" width="380">
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Honda CB 150R</h3>
+                                <div class="vehicle-price">LKR 450,000</div>
+                                <div class="vehicle-details">
+                                    📍 Kandy • 🛣️ 12,000 km • ⛽ Petrol • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">Contact Seller</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+									<img src="https://globalcorporation.jp/wp-content/uploads/2023/06/PHOTO-2023-05-25-21-19-26.jpg" alt="nissan caravan" width="370" height="200"></div>
+					
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Nissan Caravan 2018</h3>
+                                <div class="vehicle-price">LKR 4,200,000</div>
+                                <div class="vehicle-details">
+                                    📍 Galle • 🛣️ 65,000 km • ⛽ Diesel • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">Contact Seller</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quick-links">
+                <div class="container">
+                    <h2 class="section-title">Quick Actions</h2>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card" onclick="showPage('sell')">
+                            <div class="quick-link-icon">📝</div>
+                            <h3>Post Your Ad</h3>
+                            <p>Sell your vehicle quickly and easily</p>
+                        </div>
+                        <div class="quick-link-card" onclick="showPage('buy')">
+                            <div class="quick-link-icon">🔍</div>
+                            <h3>Search Vehicles</h3>
+                            <p>Find your dream vehicle today</p>
+                        </div>
+                        <div class="quick-link-card" onclick="showPage('contact')">
+                            <div class="quick-link-icon">💬</div>
+                            <h3>Contact Us</h3>
+                            <p>Get help from our support team</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- BUY VEHICLES PAGE -->
+        <div id="buy" class="page">
+            <section style="padding: 4rem 2rem;">
+                <div class="container">
+                    <h1 class="section-title">Buy Vehicles</h1>
+                    
+                    <div class="search-filters mb-2">
+                        <div class="filter-group">
+                            <label>Vehicle Type</label>
+                            <select>
+                                <option>All Types</option>
+                                <option>Car</option>
+                                <option>Motorcycle</option>
+                                <option>Van</option>
+                                <option>Three Wheeler</option>
+                                <option>Truck</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Condition</label>
+                            <select>
+                                <option>All Conditions</option>
+                                <option>Brand New</option>
+                                <option>Used</option>
+                                <option>Reconditioned</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Brand</label>
+                            <select>
+                                <option>All Brands</option>
+                                <option>Toyota</option>
+                                <option>Honda</option>
+                                <option>Nissan</option>
+                                <option>Suzuki</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Price Range</label>
+                            <select>
+                                <option>Any Price</option>
+                                <option>Under 1M</option>
+                                <option>1M - 3M</option>
+                                <option>3M - 5M</option>
+                                <option>5M - 10M</option>
+                                <option>Above 10M</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">Apply Filters</button>
+                    </div>
+
+                    <div class="vehicle-grid">
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+								<img src="https://bbgroup.co.za/honda/wp-content/uploads/2023/10/2023_TypeR_Model.png" width="400px">
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Honda Civic 2019</h3>
+                                <div class="vehicle-price">LKR 7,200,000</div>
+                                <div class="vehicle-details">
+                                    📍 Colombo • 🛣️ 38,000 km • ⛽ Petrol • 🔧 Automatic
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+							<img src="https://www.gari.pk/images/new/cars/2022-03/1626_1_98541.jpg" width="370px" height=></div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Suzuki Alto 2021</h3>
+                                <div class="vehicle-price">LKR 3,850,000</div>
+                                <div class="vehicle-details">
+                                    📍 Kandy • 🛣️ 25,000 km • ⛽ Petrol • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbuEMOhyakiq4CJ4n2DkHWv1HvJkZ5KnULDg&s" width="370">
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Yamaha FZ 2020</h3>
+                                <div class="vehicle-price">LKR 380,000</div>
+                                <div class="vehicle-details">
+                                    📍 Galle • 🛣️ 18,000 km • ⛽ Petrol • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+								 <img src="https://www.toyota.gm/media/gamme/modeles/images/30d27f192f2033c2d75991c539c65eaf.png" width="300" >
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Toyota Hiace 2017</h3>
+                                <div class="vehicle-price">LKR 5,900,000</div>
+                                <div class="vehicle-details">
+                                    📍 Negombo • 🛣️ 78,000 km • ⛽ Diesel • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+							<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmkkQLX0rPWVRPYcTN9IwPe_W7cu7MtuU6rYCm9ud8B9Go0cR4mxn4fw1RmI7jZamSYnAUeTmLVDVT7yXwGSJRM0ODZy1ttRlU1eJETw4NzKWrMIlD6WxpmjCq_JpwnhD02-hKF833ev-6/s1024/2021_bajaj_re.jpg" width="370"> </div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Bajaj Three Wheeler</h3>
+                                <div class="vehicle-price">LKR 850,000</div>
+                                <div class="vehicle-details">
+                                    📍 Matara • 🛣️ 45,000 km • ⛽ Petrol • 🔧 Manual
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card">
+                            <div class="vehicle-image">
+								<img src="https://d2ivfcfbdvj3sm.cloudfront.net/7fc965ab77efe6e0fa62e4ca1ea7673bba53465900173c8687/stills_0640_png/MY2015/9978/9978_st0640_116.png" width="370">
+							</div>
+                            <div class="vehicle-info">
+                                <h3 class="vehicle-title">Mitsubishi Lancer 2018</h3>
+                                <div class="vehicle-price">LKR 4,750,000</div>
+                                <div class="vehicle-details">
+                                    📍 Kurunegala • 🛣️ 52,000 km • ⛽ Petrol • 🔧 Automatic
+                                </div>
+                                <button class="contact-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SELL YOUR VEHICLE PAGE -->
+        <div id="sell" class="page">
+            <section style="padding: 4rem 2rem;">
+                <div class="container">
+                    <h1 class="section-title">Sell Your Vehicle</h1>
+                    <p class="text-center mb-2">Post your vehicle ad in minutes and reach thousands of potential buyers</p>
+                    
+                    <div class="form-container">
+                        <form>
+                            <h3 style="margin-bottom: 2rem; color: var(--primary-color);">Vehicle Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Vehicle Type *</label>
+                                    <select required>
+                                        <option value="">Select Type</option>
+                                        <option>Car</option>
+                                        <option>Motorcycle</option>
+                                        <option>Van</option>
+                                        <option>Three Wheeler</option>
+                                        <option>Truck</option>
+                                        <option>Bus</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Make *</label>
+                                    <select required>
+                                        <option value="">Select Make</option>
+                                        <option>Toyota</option>
+                                        <option>Honda</option>
+                                        <option>Nissan</option>
+                                        <option>Suzuki</option>
+                                        <option>Mitsubishi</option>
+                                        <option>BMW</option>
+                                        <option>Mercedes</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Model *</label>
+                                    <input type="text" placeholder="e.g., Corolla" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Year *</label>
+                                    <input type="number" placeholder="2020" min="1980" max="2024" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Price (LKR) *</label>
+                                    <input type="number" placeholder="5000000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mileage (km) *</label>
+                                    <input type="number" placeholder="45000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Fuel Type *</label>
+                                    <select required>
+                                        <option value="">Select Fuel Type</option>
+                                        <option>Petrol</option>
+                                        <option>Diesel</option>
+                                        <option>Hybrid</option>
+                                        <option>Electric</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Transmission *</label>
+                                    <select required>
+                                        <option value="">Select Transmission</option>
+                                        <option>Manual</option>
+                                        <option>Automatic</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Location *</label>
+                                <select required>
+                                    <option value="">Select Location</option>
+                                    <option>Colombo</option>
+                                    <option>Kandy</option>
+                                    <option>Galle</option>
+                                    <option>Jaffna</option>
+                                    <option>Negombo</option>
+                                    <option>Matara</option>
+                                    <option>Kurunegala</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color);">Description & Images</h3>
+                            
+                            <div class="form-group">
+                                <label>Title *</label>
+                                <input type="text" placeholder="e.g., Toyota Corolla 2020 - Excellent Condition" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea placeholder="Describe your vehicle's features, condition, and any additional information..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Upload Images</label>
+                                <input type="file" multiple accept="image/*">
+                                <small style="color: var(--text-light); display: block; margin-top: 0.5rem;">
+                                    Upload up to 10 images. First image will be the main photo.
+                                </small>
+                            </div>
+
+                            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color);">Contact Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Your Name *</label>
+                                    <input type="text" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number *</label>
+                                    <input type="tel" placeholder="0771234567" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="your.email@example.com">
+                            </div>
+
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" class="submit-btn">Post Your Ad</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DEALERS PAGE -->
+        <div id="dealers" class="page">
+            <section style="padding: 4rem 2rem;">
+                <div class="container">
+                    <h1 class="section-title">Trusted Dealers</h1>
+                    <p class="text-center mb-2">Connect with verified dealers across Sri Lanka</p>
+                    
+                    <div class="dealers-grid">
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">Premium Auto Gallery</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐⭐ 4.8 (124 reviews)</div>
+                            <p>📍 Colombo 03 • Specializes in luxury vehicles</p>
+                            <p>📞 011-2345678 • 📧 info@premiumauto.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Leading dealer for BMW, Mercedes, and Audi vehicles. Over 15 years of experience.
+                            </p><a href="https://www.google.com/maps/search/?api=1&query=premium+auto+gallery+near+me" target="_blank" style="text-decoration: none; color: inherit;">
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">Kandy Motor House</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐⭐ 4.6 (89 reviews)</div>
+                            <p>📍 Kandy • Japanese vehicle specialist</p>
+                            <p>📞 081-2234567 • 📧 sales@kandymotor.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Trusted dealer for Toyota, Honda, and Nissan. Quality reconditioned vehicles.<br><br><br><br>
+                            </p>
+							<a href="https://www.google.com/maps/search/?api=1&query=Japanese+vehicle+specialist+in+kandy" target="_blank" style="text-decoration: none; color: inherit;">
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">Galle Auto Center</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐ 4.4 (67 reviews)</div>
+                            <p>📍 Galle • Multi-brand dealership</p>
+                            <p>📞 091-2345678 • 📧 info@galleauto.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Wide selection of cars, vans, and motorcycles. Competitive pricing guaranteed.<br><br><br><br>
+                            </p>
+							<a href="https://www.google.com/maps/search/?api=1&query=Galle+Auto+Center" target="_blank" style="text-decoration: none; color: inherit;">
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">Northern Motors</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐⭐ 4.7 (52 reviews)</div>
+                            <p>📍 Jaffna • Commercial vehicle experts</p>
+                            <p>📞 021-2234567 • 📧 sales@northernmotors.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Specialists in trucks, buses, and commercial vehicles. After-sales service available.
+                            </p>
+							<a href="https://www.google.com/maps/search/?api=1&query=Northern+Motors+srilanka" target="_blank" style="text-decoration: none; color: inherit;">
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">West Coast Auto</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐ 4.5 (78 reviews)</div>
+                            <p>📍 Negombo • Budget-friendly options</p>
+                            <p>📞 031-2345678 • 📧 info@westcoastauto.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Affordable vehicles for every budget. Easy financing options available.<br><br><br>
+                            </p>
+							<a href="https://www.google.com/maps/search/?api=1&query=West+Coast+Auto+srilanka" target="_blank" style="text-decoration: none; color: inherit;">           
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+
+                        <div class="dealer-card">
+                            <div class="dealer-header">
+                                <h3 class="dealer-name">Central Auto Hub</h3>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="dealer-rating">⭐⭐⭐⭐⭐ 4.9 (156 reviews)</div>
+                            <p>📍 Kurunegala • Premium service center</p>
+                            <p>📞 037-2234567 • 📧 sales@centralautohub.lk</p>
+                            <p style="margin-top: 1rem; color: var(--text-light);">
+                                Full-service dealership with workshop facilities. Quality guarantee on all vehicles.
+                            </p>
+							<a href="https://www.google.com/maps/search/?api=1&query=Central+Auto+Hub" target="_blank" style="text-decoration: none; color: inherit;">
+                            <button class="contact-btn" style="margin-top: 1rem;">View Inventory</button></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <section style="padding: 4rem 2rem;">
+                <div class="container">
+                    <h1 class="section-title">About SellinLanka</h1>
+                    
+                    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                        <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Your Trusted Vehicle Marketplace</h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-light);">
+                            SellinLanka.com is Sri Lanka's premier online marketplace for buying and selling vehicles. 
+                            We connect vehicle buyers and sellers across the island, providing a secure, user-friendly 
+                            platform for cars, bikes, vans, three-wheelers, and more.
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin: 4rem 0;">
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">🎯</div>
+                            <h3 style="margin-bottom: 1rem;">Our Mission</h3>
+                            <p style="color: var(--text-light);">
+                                To revolutionize the vehicle marketplace in Sri Lanka by providing a transparent, 
+                                secure, and efficient platform that brings buyers and sellers together.
+                            </p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">👁️</div>
+                            <h3 style="margin-bottom: 1rem;">Our Vision</h3>
+                            <p style="color: var(--text-light);">
+                                To become the most trusted and comprehensive vehicle marketplace in Sri Lanka, 
+                                setting new standards for online automotive transactions.
+                            </p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">⚡</div>
+                            <h3 style="margin-bottom: 1rem;">Our Values</h3>
+                            <p style="color: var(--text-light);">
+                                Trust, transparency, and customer satisfaction drive everything we do. 
+                                We believe in making vehicle transactions simple and secure for everyone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--accent-color); padding: 3rem; border-radius: 10px; margin: 4rem 0;">
+                        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Why Choose SellinLanka?</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">🔒 Secure Platform</h4>
+                                <p style="color: var(--text-light);">Advanced security measures protect all transactions</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">✅ Verified Dealers</h4>
+                                <p style="color: var(--text-light);">All dealers are thoroughly verified for your safety</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">🚀 Easy to Use</h4>
+                                <p style="color: var(--text-light);">Intuitive interface makes buying and selling simple</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">🌍 Island-wide Reach</h4>
+                                <p style="color: var(--text-light);">Connect with buyers and sellers across Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 4rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Ready to Get Started?</h3>
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <button onclick="showPage('buy')" class="submit-btn">Browse Vehicles</button>
+                            <button onclick="showPage('sell')" class="submit-btn" style="background: var(--secondary-color); color: var(--text-dark);">Sell Your Vehicle</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <section style="padding: 4rem 2rem;">
+                <div class="container">
+                    <h1 class="section-title">Contact Us</h1>
+                    <p class="text-center mb-2">Get in touch with our support team. We're here to help!</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                        <div style="text-align: center; padding: 2rem; background: var(--accent-color); border-radius: 10px;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">📞</div>
+                            <h3>Phone Support</h3>
+                            <p style="color: var(--text-light); margin: 1rem 0;">Call us for immediate assistance</p>
+                            <p style="font-weight: 600; color: var(--primary-color);">+94 11 234 5678</p>
+                            <p style="color: var(--text-light);">Mon-Sat: 8:00 AM - 8:00 PM</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--accent-color); border-radius: 10px;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">📧</div>
+                            <h3>Email Support</h3>
+                            <p style="color: var(--text-light); margin: 1rem 0;">Send us your questions anytime</p>
+                            <p style="font-weight: 600; color: var(--primary-color);">support@sellinlanka.com</p>
+                            <p style="color: var(--text-light);">Response within 24 hours</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--accent-color); border-radius: 10px;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);">💬</div>
+                            <h3>Live Chat</h3>
+                            <p style="color: var(--text-light); margin: 1rem 0;">Chat with our support team</p>
+                            <button class="contact-btn" style="background: var(--primary-color); color: white;">Start Chat</button>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">Available 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="form-container">
+                        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Send us a Message</h3>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name *</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name *</label>
+                                    <input type="text" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject *</label>
+                                <select required>
+                                    <option value="">Select Subject</option>
+                                    <option>General Inquiry</option>
+                                    <option>Technical Support</option>
+                                    <option>Account Issues</option>
+                                    <option>Dealer Registration</option>
+                                    <option>Advertising</option>
+                                    <option>Feedback</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message *</label>
+                                <textarea placeholder="Please describe your inquiry in detail..." required></textarea>
+                            </div>
+                            <div style="text-align: center;">
+                                <button type="submit" class="submit-btn">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div style="background: var(--primary-color); color: white; padding: 3rem; border-radius: 10px; margin-top: 4rem; text-align: center;">
+                        <h3 style="margin-bottom: 2rem;">Follow Us on Social Media</h3>
+                        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                            <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;">📘 Facebook</a>
+                            <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;">📷 Instagram</a>
+                            <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;">🐦 Twitter</a>
+                            <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;">💼 LinkedIn</a>
+                            <a href="#" style="color: white; text-decoration: none; font-size: 1.5rem;">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>SellinLanka</h3>
+                <p>Sri Lanka's most trusted vehicle marketplace. Buy and sell vehicles with confidence.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="#" style="margin-right: 1rem;">📘</a>
+                    <a href="#" style="margin-right: 1rem;">📷</a>
+                    <a href="#" style="margin-right: 1rem;">🐦</a>
+                    <a href="#">💼</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a onclick="showPage('home')">Home</a></li>
+                    <li><a onclick="showPage('buy')">Buy Vehicles</a></li>
+                    <li><a onclick="showPage('sell')">Sell Your Vehicle</a></li>
+                    <li><a onclick="showPage('dealers')">Dealers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a onclick="showPage('contact')">Contact Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📞 +94 11 234 5678</p>
+                <p>📧 support@sellinlanka.com</p>
+                <p>📍 123 Main Street, Colombo 03, Sri Lanka</p>
+                <p>🕒 Mon-Sat: 8:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SellinLanka.com. All rights reserved. Made By Milinda Jayawardhana</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Update navigation active state
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find and activate the corresponding nav link
+            const activeNavLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeNavLink && activeNavLink.classList.contains('nav-link')) {
+                activeNavLink.classList.add('active');
+            }
+
+            // Close mobile menu if open
+            const nav = document.getElementById('nav');
+            nav.classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Form submission handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your submission! We will get back to you soon.');
+                });
+            });
+        });
+
+        // Search functionality
+        function performSearch() {
+            alert('Search functionality will be implemented soon!');
+        }
+
+        // Add event listeners to search buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButtons = document.querySelectorAll('.search-btn');
+            searchButtons.forEach(button => {
+                button.addEventListener('click', performSearch);
+            });
+        });
+    </script>
+</body>
+</html>
